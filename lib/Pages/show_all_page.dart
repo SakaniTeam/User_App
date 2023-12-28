@@ -67,8 +67,8 @@ class _ShowPropertyState extends State<ShowProperty> {
                               ),
                               subtitle: Text(
                                 isResidential
-                                    ? '${residential[index]['propertyStatus']} \n ${residential[index]['propertyAddress']} \n ${residential[index]['propertyDetails']} \n${residential[index]['propertyRentDuration']}'
-                                    : '${commercial[index]['propertyStatus']} \n ${commercial[index]['propertyAddress']} \n ${commercial[index]['propertyDetails']} \n ${commercial[index]['propertyRentDuration']}',
+                                    ? '${residential[index]['propertyStatus']} \n ${residential[index]['propertyAdress']} \n ${residential[index]['propertyDetails']} \n${residential[index]['propertyRentDuration']}'
+                                    : '${commercial[index]['propertyStatus']} \n ${commercial[index]['propertyAdress']} \n ${commercial[index]['propertyDetails']} \n ${commercial[index]['propertyRentDuration']}',
                                 style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -108,7 +108,7 @@ class _ShowPropertyState extends State<ShowProperty> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        color: Colors.orangeAccent,
+                        color: Colors.blue,
                         onPressed: () {
                           setState(() {
                             isResidential = false;
@@ -128,7 +128,7 @@ class _ShowPropertyState extends State<ShowProperty> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        color: Colors.orangeAccent,
+                        color: Colors.blue,
                         onPressed: () {
                           setState(() {
                             isResidential = true;

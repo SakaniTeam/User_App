@@ -12,7 +12,7 @@ class _HomePageState extends State<Favorites> {
   List favourites = [];
   int currentIndex = 0; // Add a default value
 
-  void getResidential() async {
+  void getfavourite() async {
     CollectionReference tblProduct =
         FirebaseFirestore.instance.collection('favourites');
     await Future.delayed(Duration(seconds: 2));
@@ -28,7 +28,7 @@ class _HomePageState extends State<Favorites> {
     });
   }
 
-  void deleteCommercial(String docID, int index) {
+  void deletefavourites (String docID, int index) {
     FirebaseFirestore.instance.collection('favourites').doc(docID).delete();
     favourites.removeAt(index);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -42,7 +42,7 @@ class _HomePageState extends State<Favorites> {
 
   @override
   void initState() {
-    getResidential();
+    getfavourite();
     super.initState();
   }
 
@@ -98,7 +98,16 @@ class _HomePageState extends State<Favorites> {
                           child: Column(
                             children: [
                               GestureDetector(
-                                onLongPress: () {
+                                onTap:  (){
+                                    Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      SingleProperty(data: favourites[index]),
+                                ),
+                              );
+                                },
+                                onLongPress: () 
+                                {
                                   showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
@@ -125,7 +134,7 @@ class _HomePageState extends State<Favorites> {
                                           TextButton(
                                             onPressed: () {
                                               Navigator.pop(context);
-                                              deleteCommercial(
+                                              deletefavourites(
                                                   " ${favourites[index]['documentId']}",
                                                   index);
                                               setState(() {});

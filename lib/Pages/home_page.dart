@@ -52,14 +52,14 @@ class _HomePageState extends State<HomePage> {
     await tblProduct.get().then((querySnapshot) {
       querySnapshot.docs.forEach((doc) {
         Map<String, dynamic> store = doc.data() as Map<String, dynamic>;
-        print("=============================================");
+
         store['documentId'] = doc.id;
         users.add(store);
       });
 
       if (users.isNotEmpty) {
         // Assuming there is only one user for the current implementation
-        userName = users[1]['userName'];
+        userName = users[0]['userName'];
       }
 
       setState(() {});
@@ -149,7 +149,8 @@ class _HomePageState extends State<HomePage> {
               ),
               leading: const Icon(Icons.contact_support),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  const ContactUs() )) ;
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ContactUs()));
               },
             ),
             ListTile(
